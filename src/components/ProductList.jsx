@@ -1,6 +1,12 @@
 import {data} from '../data';
 
-export const ProductList = () => {
+export const ProductList = ({allProducts, setAllProducts}) => {
+
+    const onAddProduct = () => {
+        console.log('add')
+    };
+
+
     return(
         <div className="container-items">
             {
@@ -15,7 +21,12 @@ export const ProductList = () => {
                         <div className="info-product">
                             <h2> {product.nameProduct} </h2>
                             <p className="price"> $ {product.price} </p>
-                            <button className="btn-add-cart">Añadir al carrito</button>
+                            <button
+                                onClick={() => onAddProduct()}
+                                className="btn-add-cart"
+                            >
+                                Añadir al carrito
+                            </button>
                         </div>
                     </div>
                 ))

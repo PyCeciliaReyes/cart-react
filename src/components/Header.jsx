@@ -1,10 +1,20 @@
-export const Header = () => {
+import { useState } from "react";
+
+export const Header = ({allProducts, setAllProducts}) => {
+
+    const [active, setActive] = useState(false);
+
+
+
     return(
         <header>
 			<h1>Tienda</h1>
 
 			<div className="container-icon">
-				<div className="container-cart-icon">
+				<div
+                    onClick={() => setActive(!active)} 
+                    className="container-cart-icon"
+                >
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -24,36 +34,44 @@ export const Header = () => {
 					</div>
 				</div>
 
-				<div className="container-cart-products hidden-cart">
-					<div className="row-product hidden">
-						<div className="cart-product">
-							<div className="info-cart-product">
-								<span className="cantidad-producto-carrito">1</span>
-								<p className="titulo-producto-carrito">Zapatos Nike</p>
-								<span className="precio-producto-carrito">$80</span>
-							</div>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth="1.5"
-								stroke="currentColor"
-								className="icon-close"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M6 18L18 6M6 6l12 12"
-								/>
-							</svg>
-						</div>
-					</div>
+				<div className={`container-cart-products ${active ? '' : 'hidden-cart'}`}>
+                    {
+                        allProducts.length ? (
+                            <>
 
-					<div className="cart-total hidden">
-						<h3>Total:</h3>
-						<span className="total-pagar">$200</span>
-					</div>
-					<p className="cart-empty">El carrito está vacío</p>
+                                <div className="row-product hidden">
+                                    <div className="cart-product">
+                                        <div className="info-cart-product">
+                                            <span className="cantidad-producto-carrito">1</span>
+                                            <p className="titulo-producto-carrito">Zapatos Nike</p>
+                                            <span className="precio-producto-carrito">$80</span>
+                                        </div>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth="1.5"
+                                            stroke="currentColor"
+                                            className="icon-close"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div className="cart-total hidden">
+                                    <h3>Total:</h3>
+                                    <span className="total-pagar">$200</span>
+                                </div>
+                            </>) 
+                            : (
+                                <p className="cart-empty">El carrito está vacío</p>
+                            )
+                    }
 				</div>
 			</div>
 		</header>
