@@ -20,7 +20,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
 
     return(
         <header>
-			<h1>Tienda</h1>
+			<h1>Tienda Informatica </h1>
 
 			<div className="container-icon">
 				<div
@@ -57,7 +57,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
                                             <div className="info-cart-product">
                                                 <span className="cantidad-producto-carrito"> {product.quantity} </span>
                                                 <p className="titulo-producto-carrito"> {product.nameProduct} </p>
-                                                <span className="precio-producto-carrito">$ {product.price} </span>
+                                                <span className="precio-producto-carrito">Gs {product.price} </span>
                                             </div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
 
                                 <div className="cart-total">
                                     <h3>Total:</h3>
-                                    <span className="total-pagar">$ {total} </span>
+                                    <span className="total-pagar">Gs {total} </span>
                                 </div>
                                 <button 
                                     className="btn-clear-all"

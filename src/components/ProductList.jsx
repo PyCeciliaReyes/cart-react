@@ -27,13 +27,13 @@ export const ProductList = ({allProducts, setAllProducts, countProducts, setCoun
                     <div className="item" key={product.id}>
                         <figure>
                             <img
-                                src= { product.img }
+                                src= { product.urlImage }
                                 alt= { product.nameProduct }
                             />
 				        </figure>
                         <div className="info-product">
                             <h2> {product.nameProduct} </h2>
-                            <p className="price"> $ {product.price} </p>
+                            <p className="price"> Gs {product.price} </p>
                             <button
                                 onClick={() => onAddProducts(product)}
                                 className="btn-add-cart"
