@@ -222,4 +222,16 @@ header {
       grid-template-columns: 1fr;
     }
   }
+
+.message {
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: rgba(45, 48, 47, 0.836);
+color: rgb(255, 254, 254);
+padding: 10px 20px;
+border-radius: 5px;
+z-index: 1000;
+}
+  
   
