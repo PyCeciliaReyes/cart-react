@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Header = ({allProducts, setAllProducts}) => {
+export const Header = ({allProducts, setAllProducts, total}) => {
 
     const [active, setActive] = useState(false);
 
@@ -65,10 +65,16 @@ export const Header = ({allProducts, setAllProducts}) => {
                                     ))}
                                 </div>
 
-                                <div className="cart-total hidden">
+                                <div className="cart-total">
                                     <h3>Total:</h3>
-                                    <span className="total-pagar">$200</span>
+                                    <span className="total-pagar">$ {total} </span>
                                 </div>
+                                <button 
+                                    className="btn-clear-all"
+                                    
+                                >
+                                    Vaciar carrito
+                                </button>
                             </>) 
                             : (
                                 <p className="cart-empty">El carrito está vacío</p>
