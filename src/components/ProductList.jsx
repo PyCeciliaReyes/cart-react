@@ -33,7 +33,7 @@ export const ProductList = ({allProducts, setAllProducts, countProducts, setCoun
 				        </figure>
                         <div className="info-product">
                             <h2> {product.nameProduct} </h2>
-                            <p className="price"> Gs {product.price} </p>
+                            <p className="price"> Gs {product.price.toLocaleString()} </p>
                             <button
                                 onClick={() => onAddProducts(product)}
                                 className="btn-add-cart"

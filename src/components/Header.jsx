@@ -57,7 +57,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
                                             <div className="info-cart-product">
                                                 <span className="cantidad-producto-carrito"> {product.quantity} </span>
                                                 <p className="titulo-producto-carrito"> {product.nameProduct} </p>
-                                                <span className="precio-producto-carrito">Gs {product.price} </span>
+                                                <span className="precio-producto-carrito">Gs {product.price.toLocaleString()} </span>
                                             </div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
 
                                 <div className="cart-total">
                                     <h3>Total:</h3>
-                                    <span className="total-pagar">Gs {total} </span>
+                                    <span className="total-pagar">Gs {total.toLocaleString()} </span>
                                 </div>
                                 <button 
                                     className="btn-clear-all"
