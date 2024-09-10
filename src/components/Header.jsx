@@ -20,7 +20,7 @@ export const Header = ({allProducts, setAllProducts, total, setTotal, countProdu
 
     return(
         <header>
-			<h1>Tienda Informatica </h1>
+			<h1>Tienda Online </h1>
 
 			<div className="container-icon">
 				<div
