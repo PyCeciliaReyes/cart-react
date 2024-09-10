@@ -1,10 +1,22 @@
 import { useState } from "react";
 
-export const Header = ({allProducts, setAllProducts, total, countProducts}) => {
+export const Header = ({allProducts, setAllProducts, total, setTotal, countProducts, setCountProducts}) => {
 
     const [active, setActive] = useState(false);
 
+    const onDeleteProduct = (product) => {
+        const results = allProducts.filter( item => item.id !== product.id );
+        setTotal(total - product.price * product.quantity);
+        setCountProducts(countProducts - product.quantity);
+        setAllProducts(results)
+    }
 
+    const onCleanCart = () => {
+        setAllProducts([])
+        setTotal(0)
+        setCountProducts(0)
+
+    }
 
     return(
         <header>
@@ -54,6 +66,7 @@ export const Header = ({allProducts, setAllProducts, total, countProducts}) => {
                                                 strokeWidth="1.5"
                                                 stroke="currentColor"
                                                 className="icon-close"
+                                                onClick={() => onDeleteProduct(product)}
                                             >
                                                 <path
                                                     strokeLinecap="round"
@@ -71,7 +84,7 @@ export const Header = ({allProducts, setAllProducts, total, countProducts}) => {
                                 </div>
                                 <button 
                                     className="btn-clear-all"
-                                    
+                                    onClick={onCleanCart}
                                 >
                                     Vaciar carrito
                                 </button>
