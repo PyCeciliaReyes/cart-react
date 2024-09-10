@@ -2,9 +2,22 @@ import {data} from '../data';
 
 export const ProductList = ({allProducts, setAllProducts}) => {
 
-    const onAddProduct = () => {
-        console.log('add')
+    const onAddProducts = product => {
+
+        if(allProducts.find(item => item.id === product.id )){
+            const products = allProducts.map(item => 
+                item.id === product.id 
+                    ? {...item, quantity: item.quantity + 1}
+                    : item
+                );
+
+            return setAllProducts([...products]);
+        };
+
+
+        setAllProducts([...allProducts, product])
     };
+    // console.log(onAddProducts)
 
 
     return(
@@ -22,7 +35,7 @@ export const ProductList = ({allProducts, setAllProducts}) => {
                             <h2> {product.nameProduct} </h2>
                             <p className="price"> $ {product.price} </p>
                             <button
-                                onClick={() => onAddProduct()}
+                                onClick={() => onAddProducts(product)}
                                 className="btn-add-cart"
                             >
                                 Añadir al carrito
