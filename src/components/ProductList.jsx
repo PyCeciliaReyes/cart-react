@@ -1,6 +1,6 @@
 import {data} from '../data';
 
-export const ProductList = ({allProducts, setAllProducts}) => {
+export const ProductList = ({allProducts, setAllProducts, countProducts, setCountProducts, total, setTotal}) => {
 
     const onAddProducts = product => {
 
@@ -11,15 +11,15 @@ export const ProductList = ({allProducts, setAllProducts}) => {
                     : item
                 );
 
+            setTotal(total + product.price * product.quantity);
+            setCountProducts(countProducts + product.quantity)
             return setAllProducts([...products]);
         };
-
-
+        setTotal(total + product.price * product.quantity);
+        setCountProducts(countProducts + product.quantity);
         setAllProducts([...allProducts, product])
     };
-    // console.log(onAddProducts)
-
-
+   
     return(
         <div className="container-items">
             {

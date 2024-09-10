@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Header = ({allProducts, setAllProducts, total}) => {
+export const Header = ({allProducts, setAllProducts, total, countProducts}) => {
 
     const [active, setActive] = useState(false);
 
@@ -30,7 +30,7 @@ export const Header = ({allProducts, setAllProducts, total}) => {
 						/>
 					</svg>
 					<div className="count-products">
-						<span id="contador-productos">0</span>
+						<span id="contador-productos"> {countProducts} </span>
 					</div>
 				</div>
 
